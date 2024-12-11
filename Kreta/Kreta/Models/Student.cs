@@ -35,5 +35,10 @@ namespace Kreta.Models
             SchoolClass = SchoolClassType.ClassA;
             EducationLevel = string.Empty;
         }
+
+        public override string ToString()
+        {
+            return $"{LastName} {FirstName} {BirthsDay.ToString("yyyy.MM.dd")} ({SchoolYear}./{SchoolClass}) {EducationLevel}";
+        }
     }
 }
