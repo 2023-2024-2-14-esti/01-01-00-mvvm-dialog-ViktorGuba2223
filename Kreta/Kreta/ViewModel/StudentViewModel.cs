@@ -24,7 +24,7 @@ namespace Kreta.ViewModel
 
         public StudentViewModel()
         {
-            _student.BirthsDay = DateTime.Now;
+            _student.BirthsDay = DateTime.Now.AddYears(-14);
         }
 
         [RelayCommand]
@@ -43,6 +43,9 @@ namespace Kreta.ViewModel
         public void DoNewStudent()
         {
             Student = new Student();
+            Student.BirthsDay = DateTime.Now.AddYears(-14);
+            OnPropertyChanged(nameof(Student));
+            // az onpropertychanged nem engedi, hogy visszaugorjon a dátum 0001.01.01-re
         }
     }
 }
